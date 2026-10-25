@@ -5,6 +5,8 @@
    Department of Information Technology, Delhi Technological University (DTU)
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 /* --------------------------------------------------------------------------
    1. Design Tokens & CSS Custom Properties
    -------------------------------------------------------------------------- */
@@ -262,79 +264,55 @@ img {
 }
 
 .top-bar {
-  background-color: var(--primary-dark);
-  color: #cbd5e1;
-  font-size: 0.8125rem;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: none !important;
 }
 
 .top-bar-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.top-bar-notice {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.badge-pulse {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: #22c55e;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.4);
-}
-
-.top-bar-links a {
-  color: #e2e8f0;
-  text-decoration: none;
-  margin-left: 1rem;
-}
-
-.top-bar-links a:hover {
-  color: #ffffff;
-  text-decoration: underline;
+  display: none !important;
 }
 
 .header-main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0;
+  gap: 1rem;
+  padding: 0.5rem 0;
 }
 
 .brand-wrapper {
   display: flex;
   align-items: center;
   text-decoration: none;
-  gap: 0.75rem;
+  gap: 1.15rem;
+  flex-shrink: 0;
 }
 
 .brand-logos {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.85rem;
+  padding-right: 1.15rem;
+  border-right: 1.5px solid var(--border-medium);
+  flex-shrink: 0;
 }
 
 .brand-logo-img {
-  height: 48px;
-  width: auto;
+  height: 44px;
+  width: 44px;
   object-fit: contain;
+  flex-shrink: 0;
+  display: block;
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .brand-title {
+  font-family: var(--font-sans);
   font-size: 1.35rem;
   font-weight: 800;
   color: var(--primary);
@@ -343,27 +321,32 @@ img {
 }
 
 .brand-subtitle {
-  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
+  margin-top: 2px;
 }
 
 /* Nav Menu */
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.15rem;
   list-style: none;
+  flex-shrink: 1;
 }
 
 .nav-link {
+  font-family: var(--font-sans);
   color: var(--text-main);
   text-decoration: none;
-  font-size: 0.925rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  padding: 0.5rem 0.75rem;
+  padding: 0.4rem 0.55rem;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
   white-space: nowrap;
@@ -383,10 +366,12 @@ img {
 .nav-cta {
   background-color: var(--accent);
   color: #ffffff !important;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.85rem;
   border-radius: var(--radius-sm);
   font-weight: 600;
   text-decoration: none;
+  font-size: 0.85rem;
+  white-space: nowrap;
 }
 
 .nav-cta:hover {
@@ -403,9 +388,10 @@ img {
   border-radius: var(--radius-sm);
   cursor: pointer;
   color: var(--primary);
+  flex-shrink: 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1140px) {
   .mobile-nav-toggle {
     display: block;
   }
@@ -434,19 +420,45 @@ img {
   }
 }
 
+@media (max-width: 480px) {
+  .brand-logo-img {
+    height: 36px;
+    width: 36px;
+  }
+
+  .brand-logos {
+    gap: 0.5rem;
+    padding-right: 0.65rem;
+  }
+
+  .brand-wrapper {
+    gap: 0.65rem;
+  }
+
+  .brand-title {
+    font-size: 1.15rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.58rem;
+  }
+}
+
 /* --------------------------------------------------------------------------
    6. Page Heading Bar (Consistent Academic Banner)
    -------------------------------------------------------------------------- */
 .page-title-banner {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: #ffffff;
-  padding: var(--space-8) 0;
+  padding: 1.75rem 0;
   border-bottom: 3px solid var(--accent-gold);
 }
 
 .page-title-banner h1 {
+  font-family: var(--font-sans);
   color: #ffffff;
-  margin-bottom: var(--space-2);
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  margin-bottom: 0.25rem;
 }
 
 .page-title-banner .breadcrumb {
@@ -455,6 +467,7 @@ img {
   gap: 0.5rem;
   font-size: 0.875rem;
   color: #cbd5e1;
+  margin-bottom: 0.25rem;
 }
 
 .page-title-banner .breadcrumb a {
@@ -467,112 +480,201 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   7. Hero Section (Home)
+   7. Hero Section (Home) — Full-Viewport Academic Split Layout
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
   background-color: var(--primary-dark);
   color: #ffffff;
-  padding: 4rem 0 3.5rem 0;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.25rem 0;
   background-image: 
-    linear-gradient(rgba(6, 23, 41, 0.88), rgba(10, 37, 64, 0.92)),
+    linear-gradient(rgba(6, 23, 41, 0.90), rgba(10, 37, 64, 0.94)),
     url('../assets/images/img1.jpg');
   background-size: cover;
   background-position: center;
-  border-bottom: 4px solid var(--accent);
+  border-bottom: 3px solid var(--accent);
 }
 
-.hero-content {
-  max-width: 58rem;
-}
-
-.hero-pill {
-  display: inline-flex;
+.hero-layout-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  margin-bottom: var(--space-4);
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .hero-layout-split {
+    grid-template-columns: 1.2fr 0.95fr;
+    gap: 2.25rem;
+  }
 }
 
 .hero-title {
+  font-family: var(--font-sans);
   color: #ffffff;
-  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-size: clamp(1.4rem, 2.4vw, 2.1rem);
   font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: var(--space-3);
-  letter-spacing: -0.02em;
+  line-height: 1.22;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.015em;
 }
 
 .hero-tagline {
-  font-size: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
   font-weight: 500;
   color: #cbd5e1;
-  margin-bottom: var(--space-4);
+  margin-bottom: 0.85rem;
   font-style: italic;
 }
 
-.hero-theme-box {
+.hero-theme-compact {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
   background: rgba(255, 255, 255, 0.08);
-  border-left: 4px solid var(--accent-gold);
-  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--accent-gold);
+  padding: 0.6rem 0.85rem;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  margin-bottom: var(--space-6);
+  margin-bottom: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #ffffff;
+  line-height: 1.4;
 }
 
-.hero-theme-label {
-  font-size: 0.75rem;
+.hero-theme-badge {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--accent-gold);
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-.hero-theme-text {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 0;
-}
-
-.hero-meta-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  margin-bottom: var(--space-8);
-}
-
-.hero-meta-card {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-md);
-  padding: 0.85rem 1rem;
-}
-
-.hero-meta-card-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: #94a3b8;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.hero-meta-card-value {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #ffffff;
+  letter-spacing: 0.08em;
+  background: rgba(201, 151, 0, 0.18);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  white-space: nowrap;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
+}
+
+.hero-actions .btn {
+  font-family: var(--font-sans);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* Right Card: Key Conference Information Card */
+.hero-quick-card {
+  background: rgba(10, 37, 64, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.4);
+}
+
+.quick-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 0.75rem;
+}
+
+.quick-card-title {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #ffffff;
+}
+
+.quick-card-status {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.quick-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.quick-detail-item {
+  display: flex;
+  align-items: center;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3.5px solid var(--accent);
+  transition: all var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.quick-detail-item:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateX(3px);
+}
+
+.quick-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  width: 100%;
+}
+
+.quick-detail-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #94a3b8;
+  line-height: 1.1;
+}
+
+.quick-detail-value {
+  font-family: var(--font-sans);
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.quick-detail-item.highlight-deadline {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.4);
+  border-left: 3.5px solid #22c55e;
+}
+
+.quick-detail-item.highlight-deadline .quick-detail-label {
+  color: #86efac;
+}
+
+.quick-detail-item.highlight-deadline .deadline-text {
+  color: #ffffff;
+  font-weight: 800;
 }
 
 /* --------------------------------------------------------------------------
